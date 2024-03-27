@@ -1,0 +1,1 @@
+<button class="bg-green-600 px-4 rounded-md py-2 text-white font-bold">Submit Task</button>
