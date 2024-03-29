@@ -6,10 +6,22 @@
     let description='';
     let color='';
 
-    function submitHandler(){
+    function submitHandler(e){
         if (!title) {
             alert('Enter your task title')
         }
+
+        let task={
+            title,
+            description,
+            color,
+            completed:false,
+            editable:false
+        }
+        console.log(task);
+        e.target.reset();
+        color='';
+
     }
 
     $:console.log(color)
