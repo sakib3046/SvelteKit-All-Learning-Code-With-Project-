@@ -1,4 +1,6 @@
 <script>
+  import DispathedButton from "./dispathedButton.svelte";
+
 
     let imgsrc= "src/assets/user.png";
     let colorChange=true;
@@ -16,6 +18,16 @@
         console.log(age)
     }
 
+    let lang=['c','c++','java','php'
+    ]
+
+    setTimeout(() => {
+        lang= [...lang,'Javascript']
+    }, 3000);
+
+
+    let ifelseNumber=''
+
 </script>
 
 <div class="container">
@@ -27,6 +39,29 @@
 
     <button on:click={ageIncrease}>Age Increase</button>
 
+    <h1 style="color: red;">3. Array listing with each loop:</h1>
+
+    <ul>
+        {#each lang as item }
+            <li>{item}</li>                
+        {/each}
+    
+    </ul>
+
+    <h1 style="color: red;">4. If else:</h1>
+
+    <h1> {ifelseNumber=-5} is a: </h1>
+        {#if  ifelseNumber>0}
+            <h2>'Positive'</h2>
+        {:else if ifelseNumber<0}
+            <h2>'Negative'</h2>
+        {:else}
+            <h2>'zero'</h2>            
+        {/if}
+
+        <h1 style="color: red;">5, Component event and event dispatching</h1>
+
+        <DispathedButton on:done={(e)=>console.log(e.detail.currentNumber , e.timeStamp)} />
 </div>
 
 
@@ -43,7 +78,7 @@
     }
     
     .colorChangeColor{
-        color: brown;
+        color: green;
     }
     
     </style>
