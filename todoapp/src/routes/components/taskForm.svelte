@@ -1,30 +1,31 @@
 <script>
     import Button from "./button.svelte";
     import PriorityColor from "./priorityColor.svelte";
-
+    import {createEventDispatcher} from 'svelte';
     let title='';
     let description='';
     let color='';
+    const dispatch = createEventDispatcher();
 
     function submitHandler(e){
         if (!title) {
-            alert('Enter your task title')
+               alert('Enter your task title')
         }
+        let id=(Math.random()* new Date().getTime()).toString()
 
         let task={
+            id,
             title,
             description,
             color,
             completed:false,
             editable:false
         }
-        console.log(task);
+        dispatch('createTask',task)
         e.target.reset();
         color='';
 
     }
-
-    $:console.log(color)
 
 </script>
 
