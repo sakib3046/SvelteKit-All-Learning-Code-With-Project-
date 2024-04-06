@@ -1,22 +1,28 @@
 <script>
     import "../app.css";
-  import TaskForm from "./components/taskForm.svelte";
-  let task =[];
-  $:console.log(task)
+    import {taskStore} from '../store'
+  import CreatedTasks from "./components/createdTasks.svelte";
+    import TaskForm from "./components/taskForm.svelte";
+    // import { onDestroy } from "svelte";
 
 
-  function addNewTask(e) {
+    // const unsubscribe =taskStore.subscribe(value=>{
+    //   taskStore= value;
+    // })
 
-    task=[ e.detail, ...task]
-  }
+    // onDestroy(()=>{
+    //   unsubscribe()
+    // })
 
+    $:console.log($taskStore)
   
   </script>
   
   <slot />
 
   <div class="flex flex-col justify-center w-full items-center m-6">
-    <TaskForm on:createTask={addNewTask}/>
+    <TaskForm/>
+    <CreatedTasks  taskList={$taskStore}/>
 
   </div>
   
