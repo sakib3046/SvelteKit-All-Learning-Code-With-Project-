@@ -5,10 +5,11 @@
     let title='';
     let description='';
     let color='';
+    let task;
 
     function submitHandler(e){
-        let id=(Math.random()* new Date().getTime()).toString()
-        let task={
+        let id=(Math.random()* new Date().getTime()).toString();
+        task={
             id,
             title,
             description,
@@ -33,7 +34,9 @@
 
 
         e.target.reset();
-        color='';
+        color=null;
+        title=null;
+        description=null;
 
     }
 
