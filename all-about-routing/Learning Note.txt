@@ -6,3 +6,6 @@ Dynamic routing by [] in folder name
     import {page} from '$app/stores'
     const productID = $page.params.productid 
 </script>
+
+
+() for group layout
