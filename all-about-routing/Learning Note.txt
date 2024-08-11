@@ -1,0 +1,11 @@
+I will write all about svelte routing system in here. 
+
+
+Dynamic routing by [] in folder name
+<script>
+    import {page} from '$app/stores'
+    const productID = $page.params.productid 
+</script>
+
+
+() for group layout

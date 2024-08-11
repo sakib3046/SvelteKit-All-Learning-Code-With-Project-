@@ -1,30 +1,44 @@
 <script>
     import Button from "./button.svelte";
     import PriorityColor from "./priorityColor.svelte";
-
+    import {taskStore} from '../../store'
     let title='';
     let description='';
     let color='';
+    let task;
 
     function submitHandler(e){
-        if (!title) {
-            alert('Enter your task title')
-        }
-
-        let task={
+        let id=(Math.random()* new Date().getTime()).toString();
+        task={
+            id,
             title,
             description,
             color,
             completed:false,
             editable:false
         }
-        console.log(task);
+
+        if (!title) {
+               alert('Enter your task title')
+        }
+        else{
+            let newtask=[task,...$taskStore]
+
+            taskStore.set(newtask)
+
+        }
+
+
+       
+
+
+
         e.target.reset();
-        color='';
+        color=null;
+        title=null;
+        description=null;
 
     }
-
-    $:console.log(color)
 
 </script>
 
